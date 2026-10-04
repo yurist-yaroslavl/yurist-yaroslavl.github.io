@@ -177,6 +177,7 @@ input:focus,select:focus,textarea:focus{border-color:var(--gold);box-shadow:0 0 
 .res .v{font:600 clamp(40px,6vw,64px)/1.05 var(--serif);margin:10px 0;background:var(--goldg);-webkit-background-clip:text;background-clip:text;color:transparent;position:relative;z-index:1}
 .res p{margin:0;color:var(--mut);font-size:14.5px;position:relative;z-index:1}
 .res .err{color:#ffb4a8}
+.res .rb{margin-top:18px;align-self:flex-start;position:relative;z-index:1}.res .rb[hidden]{display:none}
 .other{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:46px}
 @media(max-width:980px){.other{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:560px){.other{grid-template-columns:1fr}}
@@ -363,7 +364,7 @@ footer .warn{font-size:12.5px;line-height:1.6;max-width:640px}
    <button class="lnk" type="button" id="addRate">+ ставка менялась в этот период</button>
    <p class="note" style="margin:0 0 4px">Значения и даты смены ставки берите на сайте Банка России: <a href="https://www.cbr.ru/hd_base/KeyRate/" target="_blank" rel="noopener">история ключевой ставки</a>. Я не подставляю их за вас, чтобы не ошибиться.</p>
   </div>
-  <div class="res" aria-live="off"><small>Компенсация</small><div class="v" id="c-out">-</div><p id="c-note">Заполните поля слева, результат появится сразу.</p></div>
+  <div class="res" aria-live="off"><small>Компенсация</small><div class="v" id="c-out">-</div><p id="c-note">Заполните поля слева, результат появится сразу.</p><a class="btn g s rb" id="c-tg" data-tg="Компенсация за задержку выплат" href="https://t.me/pyankov_vv" target="_blank" rel="noopener" hidden>Обсудить мой расчёт в Telegram</a></div>
  </div>
 
  <div class="panel rv" id="p2" role="tabpanel">
@@ -374,7 +375,7 @@ footer .warn{font-size:12.5px;line-height:1.6;max-width:640px}
    <div class="fld"><label for="d-date" id="d-lab">Дата</label><input id="d-date" type="date"></div>
    <p class="note" id="d-norm" style="margin:0"></p>
   </div>
-  <div class="res" aria-live="off"><small id="d-small">Последний день</small><div class="v" id="d-out">-</div><p id="d-note">Выберите вид срока и дату.</p></div>
+  <div class="res" aria-live="off"><small id="d-small">Последний день</small><div class="v" id="d-out">-</div><p id="d-note">Выберите вид срока и дату.</p><a class="btn g s rb" id="d-tg" data-tg="Срок обращения" href="https://t.me/pyankov_vv" target="_blank" rel="noopener" hidden>Обсудить мой срок в Telegram</a></div>
  </div>
 
  <div class="other">
@@ -404,7 +405,7 @@ footer .warn{font-size:12.5px;line-height:1.6;max-width:640px}
   <h2 class="rv">Опишите ситуацию <em>коротко</em></h2>
   <p class="sub rv" style="margin-bottom:0">Два-три предложения. Отвечаю по существу, без звонков-продаж.</p>
   <div class="cont rv">
-   <a href="https://t.me/pyankov_vv" target="_blank" rel="noopener"><i><svg viewBox="0 0 24 24"><path d="M21 4L3 11l6 2 2 6 3-4 5 3z"/></svg></i><div><b>Telegram</b><span>@pyankov_vv, самый быстрый способ</span></div></a>
+   <a data-tg="Другой вопрос" href="https://t.me/pyankov_vv" target="_blank" rel="noopener"><i><svg viewBox="0 0 24 24"><path d="M21 4L3 11l6 2 2 6 3-4 5 3z"/></svg></i><div><b>Telegram</b><span>@pyankov_vv, самый быстрый способ</span></div></a>
    <a href="https://vk.ru/pyankov_vv" target="_blank" rel="noopener"><i><svg viewBox="0 0 24 24"><path d="M3 5h18v11H9l-5 4z"/></svg></i><div><b>ВКонтакте</b><span>vk.ru/pyankov_vv</span></div></a>
    <a href="mailto:pyankov.v.v@mail.ru"><i><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></i><div><b>Почта</b><span>pyankov.v.v@mail.ru</span></div></a>
   </div>
@@ -422,7 +423,7 @@ footer .warn{font-size:12.5px;line-height:1.6;max-width:640px}
  <div class="warn">Информация на сайте носит справочный характер и не заменяет индивидуальной консультации. Результат дела зависит от обстоятельств и решения компетентного органа и не гарантируется. Исполнитель не имеет статуса адвоката. Расчёты калькуляторов приблизительные.</div>
 </div></footer>
 
-<div class="dock"><a class="btn g" href="https://t.me/pyankov_vv" target="_blank" rel="noopener">Telegram</a><a class="btn o" href="#zayavka">Описать ситуацию</a></div>
+<div class="dock"><a class="btn g" data-tg="Другой вопрос" href="https://t.me/pyankov_vv" target="_blank" rel="noopener">Telegram</a><a class="btn o" href="#zayavka">Описать ситуацию</a></div>
 
 <script src="legal-calc.js"></script>
 <script>
@@ -479,12 +480,13 @@ function calc1(){
  var out=$('#c-out'),note=$('#c-note'),sum=num($('#c-sum').value),due=$('#c-due').value,paid=$('#c-paid').value;
  var rates=$$('.r-from',rbox).map(function(f,i){return{from:f.value,rate:num($$('.r-val',rbox)[i].value)}}).filter(function(r){return r.from||isFinite(r.rate)});
  if(rates.some(function(r){return isFinite(r.rate)&&(r.rate<0||r.rate>100)})){out.textContent='-';note.className='err';note.textContent='Ставка должна быть от 0 до 100 процентов годовых.';return}
- if(!sum||!due||!paid||!rates.length){out.textContent='-';note.className='';note.textContent='Заполните поля слева, результат появится сразу.';return}
+ if(!sum||!due||!paid||!rates.length){out.textContent='-';note.className='';note.textContent='Заполните поля слева, результат появится сразу.';$('#c-tg').hidden=true;return}
  var r=LegalCalc.compensation([{amount:sum,due:due,paid:paid}],rates);
  if(r.error){out.textContent='-';note.className='err';note.textContent=r.error;return}
  note.className='';
  out.textContent=money(r.total);
  note.textContent=r.days?('Просрочка: '+r.days+' дн. Компенсация считается отдельно от самого долга, его вы тоже вправе требовать.'):'Выплата в срок или раньше: компенсации нет.';
+ var tg=$('#c-tg');tg.hidden=false;tg.href=tgLink('Компенсация за задержку выплат','Посчитал в калькуляторе: сумма '+money(sum)+', просрочка '+r.days+' дн., компенсация по ст. 236 ТК '+money(r.total)+'.');
 }
 ['c-sum','c-due','c-paid'].forEach(function(id){$('#'+id).addEventListener('input',calc1)});
 $('#c-paid').value=today();
@@ -504,15 +506,17 @@ function calc2(){
  if(left>0)s='Осталось '+left+' дн.';else if(left===0)s='Срок заканчивается сегодня.';else s=t.info?'Срок уже вышел: можно напомнить о себе и пожаловаться вышестоящему органу.':'Срок прошёл '+(-left)+' дн. назад. '+(t.recover||'')+' Напишите мне, разберём.';
  if(r.moved)s+=' Эта дата выпадает на выходной. Для сроков по ГК перенос на ближайший рабочий день ('+r.endText+') предусмотрен ст. 193 ГК, для других норм проверьте отдельно, поэтому ориентируйтесь на первую дату.';
  note.textContent=s+' Праздничные дни калькулятор не учитывает.';
+ var tg=$('#d-tg');tg.hidden=false;tg.href=tgLink('Срок обращения','Посчитал в калькуляторе: '+t.name+', отсчёт с '+v.split('-').reverse().join('.')+', последний день '+(r.moved?r.nominal:r.endText)+'.');
 }
 sel.addEventListener('change',calc2);$('#d-date').addEventListener('input',calc2);calc2();
 
 /* заявка: обычные ссылки на Telegram с заранее заполненным сообщением, никаких полей ввода */
 var TOPICS=['Трудовой спор','ЖКХ и обращения в госорганы','Долги и банкротство','Блокировка счёта по 115-ФЗ','Социальные выплаты','Наследство, земля, гаражи','Другой вопрос'];
-function tgLink(t){return 'https://t.me/pyankov_vv?text='+encodeURIComponent('Пишу со страницы «Юридическая помощь».\nТема: '+t+'.\n\nЧто произошло: \nКогда: \nЧего хочу добиться: ')}
+function tgLink(t,extra){return 'https://t.me/pyankov_vv?text='+encodeURIComponent('Пишу со страницы «Юридическая помощь».\nТема: '+t+'.\n'+(extra?extra+'\n':'')+'\nЧто произошло: \nКогда: \nЧего хочу добиться: ')}
 var tb=$('#topics');
 TOPICS.forEach(function(t){var a=document.createElement('a');a.className='tp';a.href=tgLink(t);a.target='_blank';a.rel='noopener';a.textContent=t;tb.appendChild(a)});
 $$('.more[data-topic]').forEach(function(a){a.href=tgLink(a.dataset.topic);a.target='_blank';a.rel='noopener'});
+$$('[data-tg]').forEach(function(a){a.href=tgLink(a.dataset.tg)});
 })();
 </script>
 </body>
