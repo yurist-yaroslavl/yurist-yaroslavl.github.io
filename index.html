@@ -217,6 +217,8 @@ input:focus,select:focus,textarea:focus{border-color:var(--gold);box-shadow:0 0 
 .tp:hover::after{transform:translateX(4px)}
 .tp:last-child{grid-column:1/-1;background:#161a24;color:#fff;border-color:#161a24}
 @media(max-width:520px){.topics{grid-template-columns:1fr}}
+.draft{margin:14px 0 6px;font-size:14px}.draft summary{cursor:pointer;font-weight:700;color:var(--gold4);padding:8px 0}.draft pre{white-space:pre-wrap;overflow-wrap:anywhere;font:14px/1.6 var(--sans);padding:14px;border-radius:12px;background:#fbf9f4;border:1px solid #ddd6c4;margin:6px 0 12px;color:var(--dtx)}
+.toast{position:fixed;left:50%;bottom:90px;transform:translate(-50%,20px);z-index:90;max-width:min(92vw,460px);padding:14px 20px;border-radius:14px;background:#161a24;color:#fff;border:1px solid rgba(212,175,106,.5);box-shadow:0 20px 50px -10px rgba(0,0,0,.8);font-size:14.5px;opacity:0;pointer-events:none;transition:opacity .3s,transform .3s}.toast.on{opacity:1;transform:translate(-50%,0)}
 .acts{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .acts .btn{width:100%}
 .acts .full{grid-column:1/-1}
@@ -414,6 +416,7 @@ footer .warn{font-size:12.5px;line-height:1.6;max-width:640px}
   <h3>Выберите тему, остальное в Telegram</h3>
   <p class="n">Нажмите на свою тему: откроется чат со мной, а сообщение уже будет заполнено. Вам останется дописать суть и отправить.</p>
   <div class="topics" id="topics"></div>
+  <details class="draft"><summary>Посмотреть и скопировать текст сообщения</summary><pre id="draft"></pre><button type="button" class="btn ol s" id="copyDraft">Скопировать текст</button></details>
   <p class="note">На сайте нет форм, счётчиков и cookies. Переписка идёт напрямую в вашем мессенджере, и данные из неё я использую только для вашего вопроса. Не присылайте в первом сообщении паспортные данные и номера карт.</p>
  </div>
 </div></section>
@@ -423,6 +426,7 @@ footer .warn{font-size:12.5px;line-height:1.6;max-width:640px}
  <div class="warn">Информация на сайте носит справочный характер и не заменяет индивидуальной консультации. Результат дела зависит от обстоятельств и решения компетентного органа и не гарантируется. Исполнитель не имеет статуса адвоката. Расчёты калькуляторов приблизительные.</div>
 </div></footer>
 
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
 <div class="dock"><a class="btn g" data-tg="Другой вопрос" href="https://t.me/pyankov_vv" target="_blank" rel="noopener">Telegram</a><a class="btn o" href="#zayavka">Описать ситуацию</a></div>
 
 <script src="legal-calc.js"></script>
@@ -517,6 +521,15 @@ var tb=$('#topics');
 TOPICS.forEach(function(t){var a=document.createElement('a');a.className='tp';a.href=tgLink(t);a.target='_blank';a.rel='noopener';a.textContent=t;tb.appendChild(a)});
 $$('.more[data-topic]').forEach(function(a){a.href=tgLink(a.dataset.topic);a.target='_blank';a.rel='noopener'});
 $$('[data-tg]').forEach(function(a){a.href=tgLink(a.dataset.tg)});
+/* Telegram не всегда подставляет текст из ссылки: при нажатии копируем его в буфер и показываем черновик */
+function draftOf(a){try{return decodeURIComponent(a.href.split('text=')[1]||'')}catch(e){return ''}}
+var dr=$('#draft'),tt=$('#toast'),tmr;
+dr.textContent=draftOf($('.tp:last-child'));
+function toast(m){tt.textContent=m;tt.classList.add('on');clearTimeout(tmr);tmr=setTimeout(function(){tt.classList.remove('on')},6000)}
+function copyText(t,ok,fail){if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(ok,fail)}else fail()}
+document.addEventListener('click',function(e){var a=e.target.closest('a[href^="https://t.me/pyankov_vv"]');if(!a)return;var t=draftOf(a);if(!t)return;dr.textContent=t;
+ copyText(t,function(){toast('Текст скопирован. Если в Telegram поле пустое, просто вставьте его и отправьте.')},function(){toast('Если текста в чате нет, откройте «Посмотреть и скопировать текст» в блоке заявки.')})});
+$('#copyDraft').addEventListener('click',function(){copyText(dr.textContent,function(){toast('Текст скопирован. Вставьте его в Telegram.')},function(){toast('Браузер не разрешил копирование: выделите текст вручную.')})});
 })();
 </script>
 </body>
