@@ -16,7 +16,7 @@
 :root{
   --ink:#070a12;--navy:#0c1220;--navy2:#111a2e;--line:rgba(255,255,255,.09);
   --gold:#d4af6a;--gold2:#f1d9a0;--gold3:#a9843f;--gold4:#7a5c1f;
-  --ivory:#f5f0e6;--ivory2:#ebe4d4;--tx:#eef0f5;--mut:#9aa3b5;--dtx:#161a24;--dmut:#5c6475;
+  --ivory:#f5f0e6;--ivory2:#ebe4d4;--tx:#eef0f5;--mut:#b3bbcb;--dtx:#161a24;--dmut:#5c6475;
   --serif:"Cormorant Garamond",Georgia,"Times New Roman",serif;
   --sans:Manrope,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
   --goldg:linear-gradient(135deg,#f1d9a0 0%,#d4af6a 45%,#a9843f 100%);
@@ -42,7 +42,7 @@ nav.top.sc{background:rgba(7,10,18,.72);backdrop-filter:blur(16px) saturate(140%
 nav.top .w{display:flex;align-items:center;gap:28px;height:74px}
 .logo{font-family:var(--serif);font-weight:700;font-size:23px;letter-spacing:.01em;text-decoration:none;display:flex;align-items:center;gap:12px}
 .logo .mk{width:34px;height:34px;border-radius:10px;background:var(--goldg);display:grid;place-items:center;color:#241a05;font-size:19px;font-weight:700;box-shadow:0 8px 24px -6px rgba(212,175,106,.55)}
-.logo small{display:block;font:600 10px/1 var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--mut);margin-top:3px}
+.logo small{display:block;font:600 11px/1 var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--mut);margin-top:3px}
 nav.top .links{display:flex;gap:26px;margin-left:auto;font-size:14.5px;font-weight:500;color:var(--mut)}
 nav.top .links a{text-decoration:none;transition:color .2s}
 nav.top .links a:hover{color:var(--gold2)}
@@ -68,7 +68,7 @@ nav.top .links a:hover{color:var(--gold2)}
 @media(max-width:980px){.hero .w{grid-template-columns:1fr;gap:30px}.hero{padding-top:110px}}
 .eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold2);padding:9px 16px;border:1px solid rgba(212,175,106,.35);border-radius:999px;background:rgba(212,175,106,.07);margin-bottom:28px}
 .eyebrow i{width:6px;height:6px;border-radius:50%;background:var(--gold);box-shadow:0 0 12px var(--gold)}
-h1{font-family:var(--serif);font-weight:600;font-size:clamp(44px,7vw,92px);line-height:.98;letter-spacing:-.02em;margin:0 0 26px}
+h1{font-family:var(--serif);font-weight:600;font-size:clamp(38px,5.6vw,74px);line-height:.98;letter-spacing:-.02em;margin:0 0 26px}
 h1 em{font-style:italic;font-weight:500;background:linear-gradient(100deg,#f1d9a0,#d4af6a 40%,#fff2cf 55%,#d4af6a 70%,#a9843f);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 7s linear infinite}
 @keyframes shine{to{background-position:-220% 0}}
 .lead{font-size:clamp(17px,2vw,20px);color:var(--mut);max-width:560px;margin:0 0 38px}
@@ -87,7 +87,7 @@ h1 em{font-style:italic;font-weight:500;background:linear-gradient(100deg,#f1d9a
 @keyframes spin{to{transform:translate(-50%,-50%) rotate(360deg)}}
 .fc{position:absolute;padding:16px 20px;border-radius:18px;background:linear-gradient(145deg,rgba(255,255,255,.12),rgba(255,255,255,.04));border:1px solid rgba(255,255,255,.16);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
  box-shadow:0 30px 60px -20px rgba(0,0,0,.7),0 0 0 1px rgba(255,255,255,.03) inset,0 1px 0 rgba(255,255,255,.2) inset;will-change:transform}
-.fc small{display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold2);font-weight:700;margin-bottom:5px}
+.fc small{display:block;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold2);font-weight:700;margin-bottom:5px}
 .fc b{font:600 21px/1.2 var(--serif)}
 .fc span{display:block;font-size:13px;color:var(--mut);margin-top:3px}
 .fc.c1{left:0;top:8%;animation:fl 7s ease-in-out infinite}
@@ -130,6 +130,31 @@ h2 em{font-style:italic;color:var(--gold2);font-weight:500}
 .card a.more{margin-top:auto;font-weight:700;font-size:14px;color:var(--gold2);text-decoration:none;display:inline-flex;gap:8px;align-items:center}
 .card a.more::after{content:"→";transition:transform .25s}
 .card:hover a.more::after{transform:translateX(5px)}
+
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.sfind{margin-bottom:22px;max-width:620px}
+.sfind input{background:rgba(255,255,255,.06);border:1.5px solid rgba(255,255,255,.18);color:var(--tx);border-radius:16px;padding:17px 20px;font-size:16px}
+.sfind input::placeholder{color:#8993a8}
+.sfind input:focus{background:rgba(255,255,255,.09);border-color:var(--gold);box-shadow:0 0 0 4px rgba(212,175,106,.18)}
+.svwrap{display:grid;grid-template-columns:300px 1fr;gap:26px;align-items:start}
+@media(max-width:900px){.svwrap{grid-template-columns:1fr}}
+.svtabs{display:grid;gap:8px}
+@media(max-width:900px){.svtabs{display:flex;overflow-x:auto;gap:8px;padding-bottom:8px;scroll-snap-type:x proximity}.svtabs .sv{flex:none;scroll-snap-align:start}}
+.sv{display:flex;align-items:center;gap:14px;text-align:left;padding:14px 16px;border-radius:16px;background:linear-gradient(160deg,rgba(255,255,255,.07),rgba(255,255,255,.02));border:1px solid var(--line);color:var(--tx);font:700 15px/1.25 var(--sans);cursor:pointer;transition:all .25s}
+.sv svg{width:24px;height:24px;flex:none;stroke:var(--gold2);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.sv:hover{border-color:rgba(212,175,106,.5);transform:translateX(3px)}
+.sv.on{background:linear-gradient(135deg,rgba(212,175,106,.25),rgba(212,175,106,.06));border-color:rgba(212,175,106,.6);box-shadow:0 20px 40px -22px rgba(212,175,106,.5)}
+.spanels{min-width:0}
+.sp{display:none;padding:30px;border-radius:24px;background:linear-gradient(160deg,rgba(255,255,255,.07),rgba(255,255,255,.02));border:1px solid var(--line);box-shadow:0 40px 70px -40px rgba(0,0,0,.9)}
+.sp.on{display:block}
+.sph h3{font:600 32px/1.1 var(--serif);margin:0 0 6px}
+.sph p{margin:0 0 22px;color:var(--mut)}
+.sits{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:620px){.sits{grid-template-columns:1fr}.sp{padding:22px 18px}}
+.sit{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:15px 18px;border-radius:14px;background:rgba(255,255,255,.04);border:1px solid var(--line);text-decoration:none;font-size:15.5px;line-height:1.35;transition:all .25s}
+.sit::after{content:"→";color:var(--gold);flex:none;transition:transform .25s}
+.sit:hover{border-color:rgba(212,175,106,.55);background:rgba(212,175,106,.09);transform:translateY(-2px)}
+.sit:hover::after{transform:translateX(4px)}
 
 /* процесс */
 .proc{background:linear-gradient(180deg,var(--ink),var(--navy) 50%,var(--ink))}
@@ -177,6 +202,7 @@ input:focus,select:focus,textarea:focus{border-color:var(--gold);box-shadow:0 0 
 .res .v{font:600 clamp(40px,6vw,64px)/1.05 var(--serif);margin:10px 0;background:var(--goldg);-webkit-background-clip:text;background-clip:text;color:transparent;position:relative;z-index:1}
 .res p{margin:0;color:var(--mut);font-size:14.5px;position:relative;z-index:1}
 .res .err{color:#ffb4a8}
+.res .seg{margin:14px 0 0;padding:0;list-style:none;font-size:13px;color:var(--mut);display:grid;gap:4px;position:relative;z-index:1}
 .res .rb{margin-top:18px;align-self:flex-start;position:relative;z-index:1}.res .rb[hidden]{display:none}
 .other{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:46px}
 @media(max-width:980px){.other{grid-template-columns:repeat(2,1fr)}}
@@ -260,17 +286,17 @@ footer .warn{font-size:12.5px;line-height:1.6;max-width:640px}
  <div class="bg"></div><div class="grid"></div><div class="orb a"></div><div class="orb b"></div>
  <div class="w">
   <div>
-   <span class="eyebrow rv"><i></i>Юридическая помощь · Ярославль</span>
-   <h1 class="rv d1">Закон работает,<br>когда <em>знаешь, как</em></h1>
+   <span class="eyebrow rv"><i></i>Валерий Пьяньков · ИП, не адвокат · Ярославль</span>
+   <h1 class="rv d1">Не выплатили расчёт, заблокировали карту, УК не чинит крышу? <em>Скажу, что делать</em></h1>
    <p class="lead rv d2">Разбираю вашу ситуацию, объясняю простым языком, что делать, готовлю документы и сопровождаю на каждом шаге: трудовые споры, ЖКХ, долги, блокировки счетов, соцвыплаты, наследство и земля.</p>
    <div class="cta rv d3">
     <a class="btn g" href="#zayavka">Описать ситуацию</a>
     <a class="btn o" href="#kalkulyatory">Посчитать самому</a>
    </div>
    <div class="proof rv d3">
-    <div><b>Нормы и первоисточники</b>Ссылки на статьи, а не «общие слова»</div>
-    <div><b>Документы под ключ</b>Претензия, жалоба, иск, обращение</div>
-    <div><b>Без обещаний «100%»</b>Честная оценка шансов до начала работы</div>
+    <div><b>Опираюсь на закон</b>Даю ссылки на статьи, а не общие слова</div>
+    <div><b>Готовлю документы</b>Претензия, жалоба, иск, обращение</div>
+    <div><b>Не обещаю «100%»</b>Честно оцениваю шансы до начала работы</div>
    </div>
   </div>
   <div class="stage" id="stage" aria-hidden="true">
@@ -283,7 +309,7 @@ footer .warn{font-size:12.5px;line-height:1.6;max-width:640px}
     <path d="M70 104L26 222M70 104l44 118M330 104l-44 118M330 104l44 118" opacity=".5"/>
    </svg>
    <div class="fc c1" data-p="22"><small>ст. 236 ТК РФ</small><b>Компенсация за задержку</b><span>считается за каждый день</span></div>
-   <div class="fc c2" data-p="-30"><small>Срок обращения</small><b>От 10 суток до 3 лет</b><span>срок зависит от дела</span></div>
+   <div class="fc c2" data-p="-30"><small>Срок обращения</small><b>Зарплата: 1 год</b><span>увольнение: 1 месяц</span></div>
    <div class="fc c3" data-p="40"><small>115-ФЗ</small><b>Блокировка счёта</b><span>как оспорить по закону</span></div>
   </div>
  </div>
@@ -296,34 +322,12 @@ footer .warn{font-size:12.5px;line-height:1.6;max-width:640px}
 
 <section id="uslugi"><div class="w">
  <p class="k rv">С чем помогаю</p>
- <h2 class="rv">Шесть направлений, в которых <em>я разбираюсь на практике</em></h2>
- <p class="sub rv">У каждого направления свои нормы, сроки и «подводные камни». Разбираю именно вашу ситуацию, а не отправляю шаблон.</p>
- <div class="svc">
-  <article class="card rv"><div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18"/></svg></div>
-   <h3>Трудовые споры</h3><p>Работодатель не платит или давит.</p>
-   <ul><li>Невыплаченная зарплата, премии, отпускные</li><li>Незаконное увольнение и сокращение</li><li>Жалоба в трудовую инспекцию, иск в суд</li></ul>
-   <a class="more" href="#zayavka" data-topic="Трудовой спор">Разобрать мою ситуацию</a></article>
-  <article class="card rv d1"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8M5 10v10h14V10M10 20v-6h4v6"/></svg></div>
-   <h3>ЖКХ и госорганы</h3><p>Крыша течёт, двор запущен, ответ - отписка.</p>
-   <ul><li>Жалобы на управляющую компанию</li><li>Обращения в жилнадзор, прокуратуру, мэрию</li><li>Готовлю обращение и слежу за ответом</li></ul>
-   <a class="more" href="#zayavka" data-topic="ЖКХ и обращения в госорганы">Разобрать мою ситуацию</a></article>
-  <article class="card rv d2"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9 9.5c0-1.4 1.3-2 3-2s3 .6 3 2-1.3 1.8-3 2.5-3 1.1-3 2.5 1.3 2 3 2s3-.6 3-2"/></svg></div>
-   <h3>Долги и банкротство</h3><p>Кредиты, приставы, коллекторы.</p>
-   <ul><li>Подходит ли банкротство и какое</li><li>Защита от незаконных взысканий</li><li>Расчёт стоимости и сроков</li></ul>
-   <a class="more" href="#zayavka" data-topic="Долги и банкротство">Разобрать мою ситуацию</a></article>
-  <article class="card rv"><div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M7 15h4"/></svg></div>
-   <h3>Блокировка счёта, 115-ФЗ</h3><p>Банк ограничил карту или расчётный счёт.</p>
-   <ul><li>Что запросил банк и как ответить</li><li>Подготовка пояснений и документов</li><li>Обращение в Банк России при необходимости</li></ul>
-   <a class="more" href="#zayavka" data-topic="Блокировка счёта по 115-ФЗ">Разобрать мою ситуацию</a></article>
-  <article class="card rv d1"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10z"/></svg></div>
-   <h3>Соцвыплаты и поддержка</h3><p>Отказали в пособии, не назначили выплату.</p>
-   <ul><li>Проверяю по тексту регионального порядка</li><li>Обжалование отказа</li><li>Многодетным, малоимущим, семьям</li></ul>
-   <a class="more" href="#zayavka" data-topic="Социальные выплаты">Разобрать мою ситуацию</a></article>
-  <article class="card rv d2"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 20V9l8-5 8 5v11M9 20v-6h6v6M2 20h20"/></svg></div>
-   <h3>Наследство, земля, гаражи</h3><p>Сложные доли, чужой участок, гаражная амнистия.</p>
-   <ul><li>Наследство и доли, расчёты дробей</li><li>Оформление гаража и участка</li><li>Споры по границам и проездам</li></ul>
-   <a class="more" href="#zayavka" data-topic="Наследство, земля, гаражи">Разобрать мою ситуацию</a></article>
- </div>
+ <h2 class="rv">Найдите <em>свою ситуацию</em></h2>
+ <p class="sub rv">Выберите раздел или начните писать своими словами: я покажу похожие случаи. Нажмите на ситуацию, и откроется чат со мной с готовым сообщением.</p>
+ <div class="sfind rv"><label for="sq" class="vh">Найти свою ситуацию</label><input id="sq" type="search" placeholder="Например: крыша, ДТП, коллекторы, гараж, штраф" autocomplete="off"></div>
+ <div class="svwrap rv"><div class="svtabs" role="tablist"><button type="button" class="sv on" role="tab" data-sec="s0" aria-selected="true" aria-controls="s0"><svg viewBox="0 0 24 24"><path d="M3 7h18v13H3zM9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18"/></svg><span>Работа и зарплата</span></button><button type="button" class="sv" role="tab" data-sec="s1" aria-selected="false" aria-controls="s1"><svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zM12 7v10M9 9.5c0-1.4 1.3-2 3-2s3 .6 3 2-1.3 1.8-3 2.5-3 1.1-3 2.5 1.3 2 3 2 3-.6 3-2"/></svg><span>Долги и банкротство</span></button><button type="button" class="sv" role="tab" data-sec="s2" aria-selected="false" aria-controls="s2"><svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8M5 10v10h14V10M10 20v-6h4v6"/></svg><span>Жильё и ЖКХ</span></button><button type="button" class="sv" role="tab" data-sec="s3" aria-selected="false" aria-controls="s3"><svg viewBox="0 0 24 24"><path d="M3 5h18v14H3zM3 10h18M7 15h4"/></svg><span>Банки и блокировки</span></button><button type="button" class="sv" role="tab" data-sec="s4" aria-selected="false" aria-controls="s4"><svg viewBox="0 0 24 24"><path d="M5 16l1.5-6h11L19 16M3 16h18v3H3zM7 19v2M17 19v2"/></svg><span>Авто и страховка</span></button><button type="button" class="sv" role="tab" data-sec="s5" aria-selected="false" aria-controls="s5"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10z"/></svg><span>Наследство и семья</span></button><button type="button" class="sv" role="tab" data-sec="s6" aria-selected="false" aria-controls="s6"><svg viewBox="0 0 24 24"><path d="M4 20V9l8-5 8 5v11M9 20v-6h6v6M2 20h20"/></svg><span>Земля, гаражи, недвижимость</span></button><button type="button" class="sv" role="tab" data-sec="s7" aria-selected="false" aria-controls="s7"><svg viewBox="0 0 24 24"><path d="M4 20h16M6 16V9M12 16V5M18 16v-4"/></svg><span>Налоги и бизнес</span></button><button type="button" class="sv" role="tab" data-sec="s8" aria-selected="false" aria-controls="s8"><svg viewBox="0 0 24 24"><path d="M6 6h15l-2 9H8zM6 6L5 3H2M9 20a1 1 0 1 0 0-2 1 1 0 0 0 0 2zM18 20a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/></svg><span>Покупки и услуги</span></button><button type="button" class="sv" role="tab" data-sec="s9" aria-selected="false" aria-controls="s9"><svg viewBox="0 0 24 24"><path d="M7 3h8l4 4v14H7zM15 3v4h4M10 12h6M10 16h6"/></svg><span>Штрафы и протоколы</span></button><button type="button" class="sv" role="tab" data-sec="s10" aria-selected="false" aria-controls="s10"><svg viewBox="0 0 24 24"><path d="M12 2v20M17 6.5c0-1.9-2.2-3-5-3S7 4.600 7 6.500 9.200 9.500 12 10.500s5 1.600 5 3.500-2.200 3-5 3-5-1.100-5-3"/></svg><span>Пособия и выплаты</span></button><button type="button" class="sv" role="tab" data-sec="s11" aria-selected="false" aria-controls="s11"><svg viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6zM9 12h7M9 16h7"/></svg><span>Документы</span></button></div>
+ <div class="spanels"><div class="sp on" id="s0" role="tabpanel"><div class="sph"><h3>Работа и зарплата</h3><p>Работодатель не платит, давит или увольняет</p></div><div class="sits"><a class="sit" data-tg="Работа и зарплата" data-extra="Ситуация: Не платят зарплату" href="https://t.me/pyankov_vv" target="_blank" rel="noopener"><span>Не платят зарплату</span></a><a class="sit" data-tg="Работа и зарплата" data-extra="Ситуация: Уволили и не рассчитались" href="https://t.me/pyankov_vv" target="_blank" rel="noopener"><span>Уволили и не рассчитались</span></a><a class="sit" data-tg="Работа и зарплата" data-extra="Ситуация: Заставляют уйти по собственному" href="https://t.me/pyankov_vv" target="_blank" rel="noopener"><span>Заставляют уйти по собственному</span></a><a class="sit" data-tg="Работа и зарплата" data-extra="Ситуация: Незаконное увольнение или сокращение" href="https://t.me/pyankov_vv" target="_blank" rel="noopener"><span>Незаконное увольнение или сокращение</span></a><a class="sit" data-tg="Работа и зарплата" data-extra="Ситуация: Не выплатили отпускные или больничные" href="https://t.me/pyankov_vv" target="_blank" rel="noopener"><span>Не выплатили отпускные или больничные</span></a><a class="sit" data-tg="Работа и зарплата" data-extra="Ситуация: Работаю без трудового договора" href="https://t.me/pyankov_vv" target="_blank" rel="noopener"><span>Работаю без трудового договора</span></a><a class="sit" data-tg="Работа и зарплата" data-extra="Ситуация: Штраф или удержание из зарплаты" href="https://t.me/pyankov_vv" target="_blank" rel="noopener"><span>Штраф или удержание из зарплаты</span></a><a class="sit" data-tg="Работа и зарплата" data-extra="Ситуация: Жалоба в трудовую инспекцию" href="https://t.me/pyankov_vv" target="_blank" rel="noopener"><span>Жалоба в трудовую инспекцию</span></a><a class="sit" data-tg="Работа и зарплата" data-extra="Ситуация: Компенсация за задержку выплат" href="https://t.me/pyankov_vv" target="_blank" rel="noopener"><span>Компенсация за задержку выплат</span></a></div></div><div class="sp" id="s1" role="tabpanel"><div class="sph"><h3>Долги и банкротство</h3><p>Кредиты, приставы, коллекторы</p></div><div class="sits"><a class="sit" data-tg="Долги и банкротство" data-extra="Ситуация: Звонят коллекторы" href="https://t.me/pyankov_vv" target="_blank" rel="noopener"><span>Звонят коллекторы</span></a><a class="sit" data-tg="Долги и банкротство" data-extra="Ситуация: Не могу платить кредит" href="https://t.me/pyankov_vv" target="_blank" rel="noopener"><span>Не могу платить кредит</span></a><a class="sit" data-tg="Долги и банкротство" data-extra="Ситуация: Приставы арестовали счёт или карту" href="https://t.me/pyankov_vv" target="_blank" rel="noopener"><span>Приставы арестовали счёт или карту</span></a><a class="sit" data-tg="Долги и банкротство" data-extra="Ситуация: Думаю про банкротство" href="https://t.me/pyankov_vv" target="_blank" rel="noopener"><span>Думаю про банкротство</span></a><a class="sit" data-tg="Долги и банкротство" data-extra="Ситуация: Пришёл судебный приказ" href="https://t.me/pyankov_vv" target="_blank" rel="noopener"><span>Пришёл судебный приказ</span></a><a class="sit" data-tg="Долги и банкротство" data-extra="Ситуация: Снизить неустойку и проценты" href="https://t.me/pyankov_vv" target="_blank" rel="noopener"><span>Снизить неустойку и проценты</span></a><a class="sit" data-tg="Долги и банкротство" data-extra="Ситуация: Реструктуризация долга" href="https://t.me/pyankov_vv" target="_blank" rel="noopener"><span>Реструктуризация долга</span></a><a class="sit" data-tg="Долги и банкротство" data-extra="Ситуация: Долг по расписке: как вернуть" href="https://t.me/pyankov_vv" target="_blank" rel="noopener"><span>Долг по расписке: как вернуть</span></a></div></div><div class="sp" id="s2" role="tabpanel"><div class="sph"><h3>Жильё и ЖКХ</h3><p>Управляющая компания, соседи, коммуналка</p></div><div class="sits"><a class="sit" data-tg="Жильё и ЖКХ" data-extra="Ситуация: Управляющая компания ничего не делает" href="https://t.me/pyankov_vv" target="_blank" rel="noopener"><span>Управляющая компания ничего не делает</span></a><a class="sit" data-tg="Жильё и ЖКХ" data-extra="Ситуация: Течёт крыша" href="https://t.me/pyankov_vv" target="_blank" rel="noopener"><span>Течёт крыша</span></a><a class="sit" data-tg="Жильё и ЖКХ" data-extra="Ситуация: Пришли огромные счета за квартиру" href="https://t.me/pyankov_vv" target="_blank" rel="noopener"><span>Пришли огромные счета за квартиру</span></a><a class="sit" data-tg="Жильё и ЖКХ" data-extra="Ситуация: Перерасчёт за коммунальные услуги" href="https://t.me/pyankov_vv" target="_blank" rel="noopener"><span>Перерасчёт за коммунальные услуги</span></a><a class="sit" data-tg="Жильё и ЖКХ" data-extra="Ситуация: Затопили соседи или затопило нас" href="https://t.me/pyankov_vv" target="_blank" rel="noopener"><span>Затопили соседи или затопило нас</span></a><a class="sit" data-tg="Жильё и ЖКХ" data-extra="Ситуация: Капремонт и взносы" href="https://t.me/pyankov_vv" target="_blank" rel="noopener"><span>Капремонт и взносы</span></a><a class="sit" data-tg="Жильё и ЖКХ" data-extra="Ситуация: Запущен двор, подъезд, подвал" href="https://t.me/pyankov_vv" target="_blank" rel="noopener"><span>Запущен двор, подъезд, подвал</span></a><a class="sit" data-tg="Жильё и ЖКХ" data-extra="Ситуация: Шум и конфликт с соседями" href="https://t.me/pyankov_vv" target="_blank" rel="noopener"><span>Шум и конфликт с соседями</span></a></div></div><div class="sp" id="s3" role="tabpanel"><div class="sph"><h3>Банки и блокировки</h3><p>Банк ограничил счёт или карту</p></div><div class="sits"><a class="sit" data-tg="Банки и блокировки" data-extra="Ситуация: Блокировка счёта по 115-ФЗ" href="https://t.me/pyankov_vv" target="_blank" rel="noopener"><span>Блокировка счёта по 115-ФЗ</span></a><a class="sit" data-tg="Банки и блокировки" data-extra="Ситуация: Заблокировали карту" href="https://t.me/pyankov_vv" target="_blank" rel="noopener"><span>Заблокировали карту</span></a><a class="sit" data-tg="Банки и блокировки" data-extra="Ситуация: Блокировка счёта ИП или ООО" href="https://t.me/pyankov_vv" target="_blank" rel="noopener"><span>Блокировка счёта ИП или ООО</span></a><a class="sit" data-tg="Банки и блокировки" data-extra="Ситуация: Банк просит документы и пояснения" href="https://t.me/pyankov_vv" target="_blank" rel="noopener"><span>Банк просит документы и пояснения</span></a><a class="sit" data-tg="Банки и блокировки" data-extra="Ситуация: Вернуть ошибочный перевод" href="https://t.me/pyankov_vv" target="_blank" rel="noopener"><span>Вернуть ошибочный перевод</span></a><a class="sit" data-tg="Банки и блокировки" data-extra="Ситуация: Мошенники списали деньги" href="https://t.me/pyankov_vv" target="_blank" rel="noopener"><span>Мошенники списали деньги</span></a></div></div><div class="sp" id="s4" role="tabpanel"><div class="sph"><h3>Авто и страховка</h3><p>ДТП, ОСАГО, штрафы</p></div><div class="sits"><a class="sit" data-tg="Авто и страховка" data-extra="Ситуация: Попал в ДТП" href="https://t.me/pyankov_vv" target="_blank" rel="noopener"><span>Попал в ДТП</span></a><a class="sit" data-tg="Авто и страховка" data-extra="Ситуация: Страховая платит копейки" href="https://t.me/pyankov_vv" target="_blank" rel="noopener"><span>Страховая платит копейки</span></a><a class="sit" data-tg="Авто и страховка" data-extra="Ситуация: Страховая отказала в выплате" href="https://t.me/pyankov_vv" target="_blank" rel="noopener"><span>Страховая отказала в выплате</span></a><a class="sit" data-tg="Авто и страховка" data-extra="Ситуация: Обжаловать штраф ГИБДД" href="https://t.me/pyankov_vv" target="_blank" rel="noopener"><span>Обжаловать штраф ГИБДД</span></a><a class="sit" data-tg="Авто и страховка" data-extra="Ситуация: Взыскать ущерб с виновника" href="https://t.me/pyankov_vv" target="_blank" rel="noopener"><span>Взыскать ущерб с виновника</span></a><a class="sit" data-tg="Авто и страховка" data-extra="Ситуация: Ремонт по ОСАГО вместо денег" href="https://t.me/pyankov_vv" target="_blank" rel="noopener"><span>Ремонт по ОСАГО вместо денег</span></a></div></div><div class="sp" id="s5" role="tabpanel"><div class="sph"><h3>Наследство и семья</h3><p>Наследство, доли, раздел имущества</p></div><div class="sits"><a class="sit" data-tg="Наследство и семья" data-extra="Ситуация: Оформить наследство" href="https://t.me/pyankov_vv" target="_blank" rel="noopener"><span>Оформить наследство</span></a><a class="sit" data-tg="Наследство и семья" data-extra="Ситуация: Делим квартиру или дачу" href="https://t.me/pyankov_vv" target="_blank" rel="noopener"><span>Делим квартиру или дачу</span></a><a class="sit" data-tg="Наследство и семья" data-extra="Ситуация: Расчёт долей в наследстве" href="https://t.me/pyankov_vv" target="_blank" rel="noopener"><span>Расчёт долей в наследстве</span></a><a class="sit" data-tg="Наследство и семья" data-extra="Ситуация: Споры между наследниками" href="https://t.me/pyankov_vv" target="_blank" rel="noopener"><span>Споры между наследниками</span></a><a class="sit" data-tg="Наследство и семья" data-extra="Ситуация: Пропущен срок принятия наследства" href="https://t.me/pyankov_vv" target="_blank" rel="noopener"><span>Пропущен срок принятия наследства</span></a><a class="sit" data-tg="Наследство и семья" data-extra="Ситуация: Завещание и его оспаривание" href="https://t.me/pyankov_vv" target="_blank" rel="noopener"><span>Завещание и его оспаривание</span></a></div></div><div class="sp" id="s6" role="tabpanel"><div class="sph"><h3>Земля, гаражи, недвижимость</h3><p>Участки, гаражи, границы</p></div><div class="sits"><a class="sit" data-tg="Земля, гаражи, недвижимость" data-extra="Ситуация: Не могу оформить гараж" href="https://t.me/pyankov_vv" target="_blank" rel="noopener"><span>Не могу оформить гараж</span></a><a class="sit" data-tg="Земля, гаражи, недвижимость" data-extra="Ситуация: Гаражная амнистия" href="https://t.me/pyankov_vv" target="_blank" rel="noopener"><span>Гаражная амнистия</span></a><a class="sit" data-tg="Земля, гаражи, недвижимость" data-extra="Ситуация: Оформить участок в собственность" href="https://t.me/pyankov_vv" target="_blank" rel="noopener"><span>Оформить участок в собственность</span></a><a class="sit" data-tg="Земля, гаражи, недвижимость" data-extra="Ситуация: Спор о границах и заборе" href="https://t.me/pyankov_vv" target="_blank" rel="noopener"><span>Спор о границах и заборе</span></a><a class="sit" data-tg="Земля, гаражи, недвижимость" data-extra="Ситуация: Проезд и дорога к участку" href="https://t.me/pyankov_vv" target="_blank" rel="noopener"><span>Проезд и дорога к участку</span></a><a class="sit" data-tg="Земля, гаражи, недвижимость" data-extra="Ситуация: Споры в СНТ и ГСК" href="https://t.me/pyankov_vv" target="_blank" rel="noopener"><span>Споры в СНТ и ГСК</span></a><a class="sit" data-tg="Земля, гаражи, недвижимость" data-extra="Ситуация: Споры по аренде" href="https://t.me/pyankov_vv" target="_blank" rel="noopener"><span>Споры по аренде</span></a></div></div><div class="sp" id="s7" role="tabpanel"><div class="sph"><h3>Налоги и бизнес</h3><p>ИП, самозанятые, налоговая</p></div><div class="sits"><a class="sit" data-tg="Налоги и бизнес" data-extra="Ситуация: Налоговая что-то требует" href="https://t.me/pyankov_vv" target="_blank" rel="noopener"><span>Налоговая что-то требует</span></a><a class="sit" data-tg="Налоги и бизнес" data-extra="Ситуация: Открываю ИП или самозанятость" href="https://t.me/pyankov_vv" target="_blank" rel="noopener"><span>Открываю ИП или самозанятость</span></a><a class="sit" data-tg="Налоги и бизнес" data-extra="Ситуация: Не понимаю, как платить налоги" href="https://t.me/pyankov_vv" target="_blank" rel="noopener"><span>Не понимаю, как платить налоги</span></a><a class="sit" data-tg="Налоги и бизнес" data-extra="Ситуация: Штраф или пени от налоговой" href="https://t.me/pyankov_vv" target="_blank" rel="noopener"><span>Штраф или пени от налоговой</span></a><a class="sit" data-tg="Налоги и бизнес" data-extra="Ситуация: Контрагент не платит по договору" href="https://t.me/pyankov_vv" target="_blank" rel="noopener"><span>Контрагент не платит по договору</span></a><a class="sit" data-tg="Налоги и бизнес" data-extra="Ситуация: Претензия или иск по договору" href="https://t.me/pyankov_vv" target="_blank" rel="noopener"><span>Претензия или иск по договору</span></a><a class="sit" data-tg="Налоги и бизнес" data-extra="Ситуация: Подготовить договор для бизнеса" href="https://t.me/pyankov_vv" target="_blank" rel="noopener"><span>Подготовить договор для бизнеса</span></a></div></div><div class="sp" id="s8" role="tabpanel"><div class="sph"><h3>Покупки и услуги</h3><p>Вернуть деньги продавцу или исполнителю</p></div><div class="sits"><a class="sit" data-tg="Покупки и услуги" data-extra="Ситуация: Вернуть деньги за товар" href="https://t.me/pyankov_vv" target="_blank" rel="noopener"><span>Вернуть деньги за товар</span></a><a class="sit" data-tg="Покупки и услуги" data-extra="Ситуация: Некачественная услуга или ремонт" href="https://t.me/pyankov_vv" target="_blank" rel="noopener"><span>Некачественная услуга или ремонт</span></a><a class="sit" data-tg="Покупки и услуги" data-extra="Ситуация: Продавец отказывает в возврате" href="https://t.me/pyankov_vv" target="_blank" rel="noopener"><span>Продавец отказывает в возврате</span></a><a class="sit" data-tg="Покупки и услуги" data-extra="Ситуация: Не вернули деньги за путёвку или билеты" href="https://t.me/pyankov_vv" target="_blank" rel="noopener"><span>Не вернули деньги за путёвку или билеты</span></a><a class="sit" data-tg="Покупки и услуги" data-extra="Ситуация: Застройщик затянул сроки" href="https://t.me/pyankov_vv" target="_blank" rel="noopener"><span>Застройщик затянул сроки</span></a><a class="sit" data-tg="Покупки и услуги" data-extra="Ситуация: Защита прав потребителя" href="https://t.me/pyankov_vv" target="_blank" rel="noopener"><span>Защита прав потребителя</span></a></div></div><div class="sp" id="s9" role="tabpanel"><div class="sph"><h3>Штрафы и протоколы</h3><p>Оспорить штраф или протокол</p></div><div class="sits"><a class="sit" data-tg="Штрафы и протоколы" data-extra="Ситуация: Пришёл штраф" href="https://t.me/pyankov_vv" target="_blank" rel="noopener"><span>Пришёл штраф</span></a><a class="sit" data-tg="Штрафы и протоколы" data-extra="Ситуация: Составили протокол" href="https://t.me/pyankov_vv" target="_blank" rel="noopener"><span>Составили протокол</span></a><a class="sit" data-tg="Штрафы и протоколы" data-extra="Ситуация: Жалоба на постановление: 10 суток" href="https://t.me/pyankov_vv" target="_blank" rel="noopener"><span>Жалоба на постановление: 10 суток</span></a><a class="sit" data-tg="Штрафы и протоколы" data-extra="Ситуация: Штраф от жилищной инспекции или Роспотребнадзора" href="https://t.me/pyankov_vv" target="_blank" rel="noopener"><span>Штраф от жилищной инспекции или Роспотребнадзора</span></a><a class="sit" data-tg="Штрафы и протоколы" data-extra="Ситуация: Административная ответственность для ИП" href="https://t.me/pyankov_vv" target="_blank" rel="noopener"><span>Административная ответственность для ИП</span></a></div></div><div class="sp" id="s10" role="tabpanel"><div class="sph"><h3>Пособия и выплаты</h3><p>Отказали в выплате или не назначили</p></div><div class="sits"><a class="sit" data-tg="Пособия и выплаты" data-extra="Ситуация: Отказали в пособии" href="https://t.me/pyankov_vv" target="_blank" rel="noopener"><span>Отказали в пособии</span></a><a class="sit" data-tg="Пособия и выплаты" data-extra="Ситуация: Социальный контракт" href="https://t.me/pyankov_vv" target="_blank" rel="noopener"><span>Социальный контракт</span></a><a class="sit" data-tg="Пособия и выплаты" data-extra="Ситуация: Выплаты многодетным и семьям с детьми" href="https://t.me/pyankov_vv" target="_blank" rel="noopener"><span>Выплаты многодетным и семьям с детьми</span></a><a class="sit" data-tg="Пособия и выплаты" data-extra="Ситуация: Выплаты по инвалидности" href="https://t.me/pyankov_vv" target="_blank" rel="noopener"><span>Выплаты по инвалидности</span></a><a class="sit" data-tg="Пособия и выплаты" data-extra="Ситуация: Обжаловать отказ в выплате" href="https://t.me/pyankov_vv" target="_blank" rel="noopener"><span>Обжаловать отказ в выплате</span></a></div></div><div class="sp" id="s11" role="tabpanel"><div class="sph"><h3>Документы</h3><p>Нужен текст: претензия, жалоба, иск</p></div><div class="sits"><a class="sit" data-tg="Документы" data-extra="Ситуация: Претензия" href="https://t.me/pyankov_vv" target="_blank" rel="noopener"><span>Претензия</span></a><a class="sit" data-tg="Документы" data-extra="Ситуация: Иск в суд" href="https://t.me/pyankov_vv" target="_blank" rel="noopener"><span>Иск в суд</span></a><a class="sit" data-tg="Документы" data-extra="Ситуация: Возражения на судебный приказ" href="https://t.me/pyankov_vv" target="_blank" rel="noopener"><span>Возражения на судебный приказ</span></a><a class="sit" data-tg="Документы" data-extra="Ситуация: Жалоба в прокуратуру, инспекцию, жилнадзор" href="https://t.me/pyankov_vv" target="_blank" rel="noopener"><span>Жалоба в прокуратуру, инспекцию, жилнадзор</span></a><a class="sit" data-tg="Документы" data-extra="Ситуация: Обращение в орган власти" href="https://t.me/pyankov_vv" target="_blank" rel="noopener"><span>Обращение в орган власти</span></a><a class="sit" data-tg="Документы" data-extra="Ситуация: Ответ на требование или претензию" href="https://t.me/pyankov_vv" target="_blank" rel="noopener"><span>Ответ на требование или претензию</span></a></div></div><div class="sp sres" id="sres" role="region" aria-live="polite"><div class="sph"><h3>Найденные ситуации</h3><p id="sresn"></p></div><div class="sits" id="sresl"></div></div></div></div>
+ <p class="sub rv" style="margin:34px 0 0">Не нашли свою тему? Выберите «Другой вопрос» в блоке заявки ниже: помогаю и в смежных вопросах, а если дело не моё, скажу об этом сразу.</p>
 </div></section>
 
 <section class="proc" id="process"><div class="w">
@@ -347,7 +351,7 @@ footer .warn{font-size:12.5px;line-height:1.6;max-width:640px}
 <section class="calc" id="kalkulyatory"><div class="w">
  <p class="k rv">Калькуляторы</p>
  <h2 class="rv">Посчитайте сами, <em>пока думаете</em></h2>
- <p class="sub rv" style="max-width:660px">Расчёты справочные: они показывают порядок цифр и помогают не пропустить срок. Для суда и переговоров проверяйте результат по документам.</p>
+ <p class="sub rv" style="max-width:660px">Расчёты примерные: я даю их как ориентир, чтобы вы видели порядок цифр и не пропустили срок. Для суда и переговоров проверяйте результат по документам.</p>
 
  <div class="tabs rv" role="tablist">
   <button class="on" data-t="p1" role="tab">Компенсация за задержку выплат</button>
@@ -357,16 +361,13 @@ footer .warn{font-size:12.5px;line-height:1.6;max-width:640px}
  <div class="panel on rv" id="p1" role="tabpanel">
   <div class="fbox">
    <h3>Компенсация по ст. 236 ТК РФ</h3>
-   <p class="n">1/150 ключевой ставки Банка России за каждый день задержки, со следующего дня после срока по день выплаты включительно.</p>
+   <p class="n">1/150 ключевой ставки Банка России за каждый день задержки, со следующего дня после срока по день выплаты включительно. Введите сумму и даты, ставку я подставлю сам.</p>
    <div class="fld"><label for="c-sum">Сумма задолженности, ₽</label><input id="c-sum" inputmode="decimal" placeholder="например 100000"></div>
    <div class="row2"><div class="fld"><label for="c-due">Срок выплаты по закону или договору</label><input id="c-due" type="date"></div>
    <div class="fld"><label for="c-paid">Дата фактической выплаты (или сегодня)</label><input id="c-paid" type="date"></div></div>
-   <label id="rl">Ключевая ставка, % годовых, и дата, с которой она действует</label>
-   <div id="rates"></div>
-   <button class="lnk" type="button" id="addRate">+ ставка менялась в этот период</button>
-   <p class="note" style="margin:0 0 4px">Значения и даты смены ставки берите на сайте Банка России: <a href="https://www.cbr.ru/hd_base/KeyRate/" target="_blank" rel="noopener">история ключевой ставки</a>. Я не подставляю их за вас, чтобы не ошибиться.</p>
+   <p class="note" id="rateinfo" style="margin:0 0 4px">Ключевую ставку Банка России я подставляю автоматически, по периодам.</p>
   </div>
-  <div class="res" aria-live="off"><small>Компенсация</small><div class="v" id="c-out">-</div><p id="c-note">Заполните поля слева, результат появится сразу.</p><a class="btn g s rb" id="c-tg" data-tg="Компенсация за задержку выплат" href="https://t.me/pyankov_vv" target="_blank" rel="noopener" hidden>Обсудить мой расчёт в Telegram</a></div>
+  <div class="res" aria-live="off"><small>Компенсация</small><div class="v" id="c-out">-</div><p id="c-note">Введите сумму и даты, результат появится сразу.</p><ul class="seg" id="c-seg"></ul><a class="btn g s rb" id="c-tg" data-tg="Компенсация за задержку выплат" href="https://t.me/pyankov_vv" target="_blank" rel="noopener" hidden>Обсудить мой расчёт в Telegram</a></div>
  </div>
 
  <div class="panel rv" id="p2" role="tabpanel">
@@ -394,7 +395,7 @@ footer .warn{font-size:12.5px;line-height:1.6;max-width:640px}
  <div class="faq rv" style="margin-top:40px">
   <details class="q"><summary>Сколько это стоит?</summary><p>Точную сумму называю после разбора ситуации и до начала работы, и она записывается в договор. Стараюсь держать цены ниже рыночных.</p></details>
   <details class="q"><summary>Можете гарантировать результат?</summary><p>Нет, и этого не делает ни один добросовестный юрист: исход зависит от фактов и решения органа или суда. Зато до начала работы честно скажу, какие у вас шансы и какие слабые места.</p></details>
-  <details class="q"><summary>Какие документы нужны?</summary><p>На первый разговор достаточно описания и дат. Договор, переписку, ответы организаций, фото и справки просите собрать позже, когда будет понятно, что именно пригодится.</p></details>
+  <details class="q"><summary>Какие документы нужны?</summary><p>На первый разговор достаточно описания и дат. Договор, переписку, ответы организаций, фото и справки прошу собрать позже, когда станет понятно, что именно пригодится.</p></details>
   <details class="q"><summary>Нужно ли приходить лично?</summary><p>Как правило нет. Общение идёт в Telegram, ВКонтакте или по почте, документы подписываются дистанционно. Что подаётся на портале или через Почту России, подскажу по шагам, начиная с самого простого онлайн-варианта.</p></details>
   <details class="q"><summary>Что если срок уже прошёл?</summary><p>Не всегда это конец, но правила зависят от вида срока: где-то его можно восстановить при уважительной причине, где-то только в исключительных случаях. Посчитайте дату в калькуляторе выше и напишите мне, разберём.</p></details>
   <details class="q"><summary>Вы адвокат?</summary><p>Нет. Я индивидуальный предприниматель: консультирую и готовлю документы. Переписка со мной не защищена адвокатской тайной. По уголовным делам не помогаю. Нужен ли вам представитель в суде и на каком основании он участвует, скажу заранее, до начала работы.</p></details>
@@ -422,8 +423,8 @@ footer .warn{font-size:12.5px;line-height:1.6;max-width:640px}
 </div></section>
 
 <footer><div class="w">
- <div><b>Индивидуальный предприниматель Пьяньков Валерий Владимирович</b><br>ИНН 503013006986 · ОГРНИП 318762700038739<br>Консультации и подготовка документов. Ярославль, дистанционно. Адрес для корреспонденции и время связи - по запросу в мессенджере. ИП зарегистрирован в ЕГРИП.<br>© <span id="y"></span></div>
- <div class="warn">Информация на сайте носит справочный характер и не заменяет индивидуальной консультации. Результат дела зависит от обстоятельств и решения компетентного органа и не гарантируется. Исполнитель не имеет статуса адвоката. Расчёты калькуляторов приблизительные.</div>
+ <div><b>Я - индивидуальный предприниматель Пьяньков Валерий Владимирович</b><br>ИНН 503013006986 · ОГРНИП 318762700038739, запись есть в ЕГРИП<br>Консультирую и готовлю документы. Работаю в Ярославле и дистанционно. Адрес для корреспонденции и время связи называю по запросу в мессенджере.<br>© <span id="y"></span></div>
+ <div class="warn">Информация на сайте справочная и не заменяет консультации по вашему делу. Результат зависит от обстоятельств и решения органа или суда, поэтому я его не гарантирую. Я не адвокат. Расчёты в калькуляторах примерные, проверяйте их по документам.</div>
 </div></footer>
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
@@ -470,27 +471,22 @@ $$('.tabs button').forEach(function(b){b.setAttribute('aria-selected',b.classLis
  $$('.panel').forEach(function(p){p.classList.toggle('on',p.id===b.dataset.t)})})});
 
 /* калькулятор компенсации */
-var rbox=$('#rates');
-function addRate(from,rate){var d=document.createElement('div');d.className='row2';d.style.marginBottom='10px';
- d.innerHTML='<div class="fld"><input type="date" class="r-from" aria-label="Дата, с которой действует ставка"></div><div class="fld"><input class="r-val" inputmode="decimal" placeholder="Ставка, % (например 16)" aria-label="Ключевая ставка, процентов годовых"></div>';
- if(from)$('.r-from',d).value=from;if(rate)$('.r-val',d).value=rate;rbox.appendChild(d);
- $$('input',d).forEach(function(i){i.addEventListener('input',calc1)})}
-$('#addRate').addEventListener('click',function(){addRate()});
-addRate();
+var RATES=null;
+fetch('rates.json?'+Date.now()).then(function(r){return r.json()}).then(function(d){RATES=d;var l=d.rates[d.rates.length-1];$('#rateinfo').textContent='Ключевую ставку Банка России я подставляю автоматически, по периодам. Сейчас '+String(l.rate).replace('.',',')+'% (с '+LegalCalc.fmt(LegalCalc.parse(l.from))+'). Данные обновлены '+LegalCalc.fmt(LegalCalc.parse(d.updated))+'.';calc1()}).catch(function(){$('#rateinfo').textContent='Не удалось загрузить ставки Банка России. Обновите страницу или напишите мне, посчитаю сам.'});
 function num(s){s=String(s||'').replace(/\s/g,'');if(/^\d{1,3}(\.\d{3})+$/.test(s))s=s.replace(/\./g,'');return parseFloat(s.replace(',','.'))}
 function today(){var d=new Date();return d.getFullYear()+'-'+('0'+(d.getMonth()+1)).slice(-2)+'-'+('0'+d.getDate()).slice(-2)}
 function money(x){return x.toLocaleString('ru-RU',{minimumFractionDigits:2,maximumFractionDigits:2})+' ₽'}
 function calc1(){
- var out=$('#c-out'),note=$('#c-note'),sum=num($('#c-sum').value),due=$('#c-due').value,paid=$('#c-paid').value;
- var rates=$$('.r-from',rbox).map(function(f,i){return{from:f.value,rate:num($$('.r-val',rbox)[i].value)}}).filter(function(r){return r.from||isFinite(r.rate)});
- if(rates.some(function(r){return isFinite(r.rate)&&(r.rate<0||r.rate>100)})){out.textContent='-';note.className='err';note.textContent='Ставка должна быть от 0 до 100 процентов годовых.';return}
- if(!sum||!due||!paid||!rates.length){out.textContent='-';note.className='';note.textContent='Заполните поля слева, результат появится сразу.';$('#c-tg').hidden=true;return}
- var r=LegalCalc.compensation([{amount:sum,due:due,paid:paid}],rates);
- if(r.error){out.textContent='-';note.className='err';note.textContent=r.error;return}
- note.className='';
- out.textContent=money(r.total);
- note.textContent=r.days?('Просрочка: '+r.days+' дн. Компенсация считается отдельно от самого долга, его вы тоже вправе требовать.'):'Выплата в срок или раньше: компенсации нет.';
- var tg=$('#c-tg');tg.hidden=false;tg.href=tgLink('Компенсация за задержку выплат','Посчитал в калькуляторе: сумма '+money(sum)+', просрочка '+r.days+' дн., компенсация по ст. 236 ТК '+money(r.total)+'.');
+ var out=$('#c-out'),note=$('#c-note'),sum=num($('#c-sum').value),due=$('#c-due').value,paid=$('#c-paid').value,tg=$('#c-tg'),sg=$('#c-seg');
+ function off(m,e){out.textContent='-';note.className=e?'err':'';note.textContent=m;tg.hidden=true;sg.innerHTML=''}
+ if(!sum||!due||!paid)return off('Введите сумму и даты, результат появится сразу.');
+ if(!RATES)return off('Загружаю ключевую ставку Банка России...');
+ var r=LegalCalc.compensation([{amount:sum,due:due,paid:paid}],RATES.rates);
+ if(r.error)return off(r.error,true);
+ note.className='';out.textContent=money(r.total);
+ note.textContent=r.days?('Просрочка: '+r.days+' дн. Сам долг ('+money(sum)+') вы требуете отдельно, компенсация идёт сверху.'):'Выплата в срок или раньше: компенсации нет.';
+ var g=r.rows[0].segments;sg.innerHTML=g.map(function(x){return '<li>'+x.fromText+' - '+x.toText+': ставка '+String(x.rate).replace('.',',')+'%, '+x.days+' дн., '+money(x.sum)+'</li>'}).join('');
+ tg.hidden=false;tg.href=tgLink('Компенсация за задержку выплат','Посчитал в калькуляторе: сумма '+money(sum)+', просрочка '+r.days+' дн., компенсация по ст. 236 ТК '+money(r.total)+'.');
 }
 ['c-sum','c-due','c-paid'].forEach(function(id){$('#'+id).addEventListener('input',calc1)});
 $('#c-paid').value=today();
@@ -509,18 +505,33 @@ function calc2(){
  var left=Math.round((base-td)/LegalCalc.DAY),s='';
  if(left>0)s='Осталось '+left+' дн.';else if(left===0)s='Срок заканчивается сегодня.';else s=t.info?'Срок уже вышел: можно напомнить о себе и пожаловаться вышестоящему органу.':'Срок прошёл '+(-left)+' дн. назад. '+(t.recover||'')+' Напишите мне, разберём.';
  if(r.moved)s+=' Эта дата выпадает на выходной. Для сроков по ГК перенос на ближайший рабочий день ('+r.endText+') предусмотрен ст. 193 ГК, для других норм проверьте отдельно, поэтому ориентируйтесь на первую дату.';
- note.textContent=s+' Праздничные дни калькулятор не учитывает.';
+ note.textContent=s+' Праздничные дни я в расчёте не учитываю.';
  var tg=$('#d-tg');tg.hidden=false;tg.href=tgLink('Срок обращения','Посчитал в калькуляторе: '+t.name+', отсчёт с '+v.split('-').reverse().join('.')+', последний день '+(r.moved?r.nominal:r.endText)+'.');
 }
 sel.addEventListener('change',calc2);$('#d-date').addEventListener('input',calc2);calc2();
 
 /* заявка: обычные ссылки на Telegram с заранее заполненным сообщением, никаких полей ввода */
 var TOPICS=['Трудовой спор','ЖКХ и обращения в госорганы','Долги и банкротство','Блокировка счёта по 115-ФЗ','Социальные выплаты','Наследство, земля, гаражи','Другой вопрос'];
-function tgLink(t,extra){return 'https://t.me/pyankov_vv?text='+encodeURIComponent('Пишу со страницы «Юридическая помощь».\nТема: '+t+'.\n'+(extra?extra+'\n':'')+'\nЧто произошло: \nКогда: \nЧего хочу добиться: ')}
+function tgLink(t,extra){return 'https://t.me/pyankov_vv?text='+encodeURIComponent('Здравствуйте! Нужна юридическая помощь (написал(а) с сайта).\nТема: '+t+'.\n'+(extra?extra+'\n':'')+'\nЧто произошло: \nКогда: \nЧего хочу добиться: ')}
 var tb=$('#topics');
 TOPICS.forEach(function(t){var a=document.createElement('a');a.className='tp';a.href=tgLink(t);a.target='_blank';a.rel='noopener';a.textContent=t;tb.appendChild(a)});
 $$('.more[data-topic]').forEach(function(a){a.href=tgLink(a.dataset.topic);a.target='_blank';a.rel='noopener'});
-$$('[data-tg]').forEach(function(a){a.href=tgLink(a.dataset.tg)});
+$$('[data-tg]').forEach(function(a){a.href=tgLink(a.dataset.tg,a.dataset.extra)});
+/* услуги: разделы и поиск по ситуациям */
+var secs=$$('.sv'),pans=$$('.sp:not(.sres)'),sq=$('#sq'),sres=$('#sres');
+function showSec(id){secs.forEach(function(b){var on=b.dataset.sec===id;b.classList.toggle('on',on);b.setAttribute('aria-selected',on)});pans.forEach(function(p){p.classList.toggle('on',p.id===id)});sres.classList.remove('on')}
+secs.forEach(function(b){b.addEventListener('click',function(){sq.value='';showSec(b.dataset.sec)})});
+var all=$$('.sp:not(.sres) .sit').map(function(a){return{el:a,txt:a.textContent.toLowerCase(),sec:a.dataset.tg}});
+function norm(t){return t.toLowerCase().replace(/ё/g,'е')}
+sq.addEventListener('input',function(){var q=norm(sq.value.trim());
+ if(q.length<2){showSec((secs.filter(function(b){return b.classList.contains('on')})[0]||secs[0]).dataset.sec);return}
+ var words=q.split(/\s+/).map(function(w){return w.length>4?w.slice(0,w.length-1):w});
+ var hit=all.filter(function(x){var t=norm(x.txt+' '+x.sec);return words.every(function(w){return t.indexOf(w)>-1})});
+ $('#sresl').innerHTML='';hit.slice(0,14).forEach(function(x){var c=x.el.cloneNode(true);$('#sresl').appendChild(c)});
+ $('#sresn').textContent=hit.length?('Нашлось: '+hit.length):'Точного совпадения нет. Напишите мне своими словами, я подскажу.';
+ if(!hit.length){var o=document.createElement('a');o.className='sit';o.href=tgLink('Другой вопрос','Мой вопрос: '+sq.value.trim().slice(0,120));o.target='_blank';o.rel='noopener';o.innerHTML='<span>Написать мне про это</span>';$('#sresl').appendChild(o)}
+ pans.forEach(function(p){p.classList.remove('on')});sres.classList.add('on');secs.forEach(function(b){b.classList.remove('on')})});
+
 /* Telegram не всегда подставляет текст из ссылки: при нажатии копируем его в буфер и показываем черновик */
 function draftOf(a){try{return decodeURIComponent(a.href.split('text=')[1]||'')}catch(e){return ''}}
 var dr=$('#draft'),tt=$('#toast'),tmr;
