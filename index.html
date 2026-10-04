@@ -241,6 +241,24 @@ input:focus,select:focus,textarea:focus{border-color:var(--gold);box-shadow:0 0 
 .other b{display:block;font:600 21px/1.15 var(--serif);margin-bottom:6px}
 .other span{font-size:14px;color:var(--dmut)}
 
+.cacc{display:grid;gap:14px}
+.cd{background:#fff;border-radius:22px;border:1px solid rgba(22,26,36,.08);box-shadow:0 30px 60px -40px rgba(22,26,36,.4)}
+.cd>summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 26px;color:var(--dtx)}
+.cd>summary::-webkit-details-marker{display:none}
+.cd>summary b{display:block;font:600 26px/1.1 var(--serif)}
+.cd>summary i{display:block;font-style:normal;color:var(--dmut);font-size:15px;margin-top:3px}
+.cd>summary::after{content:"+";flex:none;width:38px;height:38px;border-radius:50%;border:1px solid #d9d1bd;display:grid;place-items:center;font:400 24px var(--sans);color:var(--gold4);transition:transform .3s,background .3s}
+.cd[open]>summary::after{transform:rotate(45deg);background:#f5f0e6}
+.cd[open]>summary{border-bottom:1px solid #eee8da}
+.cd .panel{padding:22px;gap:22px}
+.cd .other{margin:0;padding:22px}
+.row2{align-items:end}
+.mfcd{margin-top:6px}
+.mfcd>summary{list-style:none;cursor:pointer;display:inline-flex;margin-bottom:18px}
+.mfcd>summary::-webkit-details-marker{display:none}
+.mfcd>summary::after{content:"  +";margin-left:8px;font-size:20px;line-height:1}
+.mfcd[open]>summary::after{content:"  -"}
+#mfc{padding:80px 0}
 /* FAQ */
 .faq{max-width:860px}
 .q{border-bottom:1px solid var(--line)}
@@ -380,6 +398,7 @@ footer .warn{font-size:12.5px;line-height:1.6;max-width:640px}
  <p class="k rv">Банкротство без суда</p>
  <h2 class="rv">Кому подходит <em>банкротство через МФЦ</em></h2>
  <p class="sub rv">Внесудебное банкротство проходит без суда, но подходит не всем. Ниже условия по закону на 4 октября 2026 года. Подходит ли оно именно вам, я проверю по вашим документам.</p>
+ <details class="mfcd rv"><summary class="btn g">Условия и как это работает</summary>
  <div class="mfc">
   <div class="mc rv"><b>Размер долга</b><p>От 25 000 до 1 000 000 рублей. В сумму входят и долги, срок которых ещё не наступил, алименты и поручительства.</p></div>
   <div class="mc rv d1"><b>Нужно одно из оснований</b>
@@ -393,7 +412,7 @@ footer .warn{font-size:12.5px;line-height:1.6;max-width:640px}
   <div class="mc rv d1"><b>Моя помощь</b><p>Проверю, подходите ли вы, подскажу, какие справки и документы собрать, помогу подготовить заявление и список кредиторов. Подача через МФЦ идёт без суда, в суд я не хожу.</p>
    <a class="btn g s" id="mfc-tg" href="https://t.me/pyankov_vv" target="_blank" rel="noopener">Проверить, подхожу ли я</a></div>
  </div>
- <p class="pn mfc-src">Источник: ст. 223.2, 223.4, 223.5, 223.6 Федерального закона «О несостоятельности (банкротстве)» от 26.10.2002 N 127-ФЗ, редакция от 04.08.2026, <a href="https://www.consultant.ru/document/cons_doc_LAW_39331/c48290d39215783e73f0899bb1026b14cb221eff/" target="_blank" rel="noopener">текст на consultant.ru</a>. Это общая информация, а не заключение по вашему делу.</p>
+ <p class="pn mfc-src">Источник: ст. 223.2, 223.4, 223.5, 223.6 Федерального закона «О несостоятельности (банкротстве)» от 26.10.2002 N 127-ФЗ, редакция от 04.08.2026, <a href="https://www.consultant.ru/document/cons_doc_LAW_39331/c48290d39215783e73f0899bb1026b14cb221eff/" target="_blank" rel="noopener">текст на consultant.ru</a>. Это общая информация, а не заключение по вашему делу.</p></details>
 </div></section>
 
 <section class="price"><div class="w"><div class="pbox rv">
@@ -419,27 +438,27 @@ footer .warn{font-size:12.5px;line-height:1.6;max-width:640px}
 
 <section class="calc" id="kalkulyatory"><div class="w">
  <p class="k rv">Калькуляторы</p>
- <h2 class="rv">Посчитайте сами, <em>пока думаете</em></h2>
- <p class="sub rv" style="max-width:660px">Расчёты примерные: я даю их как ориентир, чтобы вы видели порядок цифр и не пропустили срок. Для суда и переговоров проверяйте результат по документам.</p>
+ <h2 class="rv">Полезные <em>калькуляторы</em></h2>
+ <p class="sub rv" style="max-width:660px">Два быстрых расчёта и ссылки на другие калькуляторы. Нажмите на нужный, он раскроется. Расчёты примерные: я даю их как ориентир.</p>
 
- <div class="tabs rv" role="tablist">
-  <button class="on" data-t="p1" role="tab">Компенсация за задержку выплат</button>
-  <button data-t="p2" role="tab">Срок обращения</button>
- </div>
-
- <div class="panel on rv" id="p1" role="tabpanel">
+ <div class="cacc">
+<details class="cd rv"><summary><span><b>Компенсация за задержку зарплаты</b><i>Сколько вам должны за каждый день просрочки</i></span></summary>
+ <div class="panel on" id="p1">
   <div class="fbox">
    <h3>Компенсация по ст. 236 ТК РФ</h3>
    <p class="n">1/150 ключевой ставки Банка России за каждый день задержки, со следующего дня после срока по день выплаты включительно. Введите сумму и даты, ставку я подставлю сам.</p>
    <div class="fld"><label for="c-sum">Сумма задолженности, ₽</label><input id="c-sum" inputmode="decimal" placeholder="например 100000"></div>
-   <div class="row2"><div class="fld"><label for="c-due">Срок выплаты по закону или договору</label><input id="c-due" type="date"></div>
-   <div class="fld"><label for="c-paid">Дата фактической выплаты (или сегодня)</label><input id="c-paid" type="date"></div></div>
+   <div class="row2"><div class="fld"><label for="c-due">Срок выплаты</label><input id="c-due" type="date"></div>
+   <div class="fld"><label for="c-paid">Дата выплаты</label><input id="c-paid" type="date"></div></div>
+   <p class="note" style="margin:0 0 6px">Срок выплаты: по закону или договору. Дата выплаты: день, когда заплатили, а если ещё нет, то сегодня.</p>
    <p class="note" id="rateinfo" style="margin:0 0 4px">Ключевую ставку Банка России я подставляю автоматически, по периодам.</p>
   </div>
   <div class="res" aria-live="off"><small>Компенсация</small><div class="v" id="c-out">-</div><p id="c-note">Введите сумму и даты, результат появится сразу.</p><ul class="seg" id="c-seg"></ul><a class="btn g s rb" id="c-tg" href="https://t.me/pyankov_vv" target="_blank" rel="noopener" hidden>Обсудить мой расчёт с юристом</a></div>
  </div>
 
- <div class="panel rv" id="p2" role="tabpanel">
+ </details>
+ <details class="cd rv"><summary><span><b>Срок обращения</b><i>Последний день для жалобы или иска</i></span></summary>
+ <div class="panel on" id="p2">
   <div class="fbox">
    <h3>Какой срок на подачу</h3>
    <p class="n">Последний день для обращения, с учётом переноса с выходного. Праздничные дни не учитываются, сверяйтесь с календарём.</p>
@@ -450,12 +469,16 @@ footer .warn{font-size:12.5px;line-height:1.6;max-width:640px}
   <div class="res" aria-live="off"><small id="d-small">Последний день</small><div class="v" id="d-out">-</div><p id="d-note">Выберите вид срока и дату.</p><a class="btn g s rb" id="d-tg" href="https://t.me/pyankov_vv" target="_blank" rel="noopener" hidden>Обсудить мой срок с юристом</a></div>
  </div>
 
+ </details>
+ <details class="cd rv"><summary><span><b>Другие калькуляторы</b><i>Госпошлина, банкротство, долги, соцконтракт</i></span></summary>
  <div class="other">
   <a class="rv" href="https://kalkulyator-yurista.github.io/" target="_blank" rel="noopener"><b>Госпошлина в суд</b><span>Суды общей юрисдикции и арбитраж, ст. 333.19 и 333.21 НК</span></a>
   <a class="rv d1" href="https://kalkulyator-bankrotstva.github.io/" target="_blank" rel="noopener"><b>Подходит ли мне банкротство</b><span>МФЦ или суд, стоимость и сроки</span></a>
   <a class="rv d2" href="https://kalkulyator-dolgov.github.io/" target="_blank" rel="noopener"><b>Погашение долгов</b><span>Как быстрее и дешевле закрыть кредиты</span></a>
   <a class="rv d3" href="https://kalkulyator-soc-kontrakta.github.io/" target="_blank" rel="noopener"><b>Социальный контракт</b><span>Хватит ли дохода и на что можно рассчитывать</span></a>
  </div>
+</details>
+</div>
 </div></section>
 
 <section id="faq"><div class="w">
@@ -624,6 +647,12 @@ document.addEventListener('click',function(e){var a=e.target.closest('a[href^="h
  copyText(t,function(){toast('Текст скопирован. Если в Telegram поле пустое, просто вставьте его и отправьте.')},function(){toast('Если текста в чате нет, откройте «Посмотреть и скопировать текст» в блоке заявки.')})});
 var cd=$('#copyDraft');if(cd)cd.addEventListener('click',function(){copyText(dr.textContent,function(){toast('Текст скопирован. Вставьте его в Telegram.')},function(){toast('Браузер не разрешил копирование: выделите текст вручную.')})});
 var mt=$('#mfc-tg');if(mt)mt.href=tgLink('Банкротство через МФЦ','Ситуация: хочу проверить, подхожу ли под внесудебное банкротство');
+
+/* аккордеон: открыт один блок, ссылка #mfc раскрывает условия */
+$$('.cd').forEach(function(d){d.addEventListener('toggle',function(){if(d.open)$$('.cd').forEach(function(o){if(o!==d)o.open=false})})});
+function openMfc(){var m=$('.mfcd');if(m)m.open=true}
+if(location.hash==='#mfc')openMfc();
+$$('a[href="#mfc"]').forEach(function(a){a.addEventListener('click',openMfc)});
 })();
 </script>
 </body>
